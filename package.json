@@ -1,0 +1,25 @@
+{
+	"name": "brewlist-server",
+	"version": "1.0.0",
+	"description": "Express server for Brewlist app",
+	"main": "server.js",
+	"dependencies": {
+		"axios": "^0.21.1",
+		"bcryptjs": "^2.4.3",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.12.1"
+	},
+	"devDependencies": {
+		"nodemon": "^1.19.4",
+		"config": "^3.3.1"
+	},
+	"scripts": {
+		"start": "set NODE_ENV=production && node server.js",
+		"production": "set NODE_ENV=production && set SUPPRESS_NO_CONFIG_WARNING=true  && node server.js",
+		"server": "nodemon server.js"
+	},
+	"author": "Lucas Lokken",
+	"license": "MIT"
+}
