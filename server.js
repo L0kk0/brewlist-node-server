@@ -15,9 +15,10 @@ app.use(express.json({ extended: true }));
 
 if (process.env.NODE_ENV === 'production') {
 	var corsOptions = {
-		origin: process.env.LGI_CORS,
+		origin: process.env.CORS,
 		optionsSuccessStatus: 200,
 	};
+	console.log('Cors: ', process.env.CORS);
 	app.use(cors(corsOptions));
 }
 
