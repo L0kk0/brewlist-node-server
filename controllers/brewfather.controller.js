@@ -4,10 +4,10 @@ const axios = require('axios');
 let userName;
 
 if (process.env.NODE_ENV === 'production') {
-	jwtSecret = `${process.env.BREWFATHER_API_ID}:${process.env.BREWFATHER_API_KEY}`;
+	userName = `${process.env.BREWFATHER_API_ID}:${process.env.BREWFATHER_API_KEY}`;
 } else {
 	config = require('config');
-	jwtSecret = `${config.get('BREWFATHER_API_ID')}:${config.get(
+	userName = `${config.get('BREWFATHER_API_ID')}:${config.get(
 		'BREWFATHER_API_KEY'
 	)}`;
 }
