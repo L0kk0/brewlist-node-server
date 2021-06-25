@@ -88,7 +88,7 @@ exports.pourTap = async (req, res) => {
 			}
 
 			if (tapBeer) {
-				return res.json(tapBeer);
+				return res.status(200).json(tapBeer);
 			} else {
 				return res
 					.status(500)
