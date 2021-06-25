@@ -82,9 +82,15 @@ exports.pourTap = async (req, res) => {
 
 		tap.amtLeft = updatedAmount;
 
-		await tap.save();
-
-		res.status(200).send(tap);
+		await tap.save((err, tapBeer) => {
+			if (err) {
+				throw err;
+			} else if (tapBeer) {
+				res.status(200).json(tapBeer);
+			} else {
+				res.status(500).send({ error: 'There was an error adding tap beer' });
+			}
+		});
 	} catch (err) {
 		console.log(`Error Updating Tap: ${err}`);
 		res.status(500).send({ error: err });
