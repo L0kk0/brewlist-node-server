@@ -82,7 +82,7 @@ exports.pourTap = async (req, res) => {
 
 		tap.amtLeft = updatedAmount;
 
-		tap.save();
+		await tap.save();
 
 		res.status(200).send(tap);
 	} catch (err) {
