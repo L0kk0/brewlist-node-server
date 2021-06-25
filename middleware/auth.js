@@ -61,6 +61,7 @@ module.exports = {
 
 	authPour: async function (req, res, next) {
 		dns.lookup(dynDns, (err, address, family) => {
+			console.log(req.headers['x-forwarded-for'], address);
 			if (req.headers['x-forwarded-for'] !== address) {
 				return res.status(401).json({ msg: 'Not Authorized' });
 			}
