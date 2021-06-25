@@ -64,9 +64,9 @@ module.exports = {
 			console.log(req.headers['x-forwarded-for'], address);
 			if (req.headers['x-forwarded-for'] !== address) {
 				return res.status(401).json({ msg: 'Not Authorized' });
+			} else {
+				next();
 			}
 		});
-
-		next();
 	},
 };
