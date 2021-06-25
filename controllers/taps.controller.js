@@ -86,13 +86,11 @@ exports.pourTap = async (req, res) => {
 			if (err) {
 				console.log('err', err);
 				throw err;
-			}
-
-			if (tapBeer) {
-				console.log('No tapBeer', tapBeer);
-				return res.status(200).send(tapBeer);
+			} else if (tapBeer) {
+				console.log('TapBeer', tapBeer);
+				return res.json(tapBeer);
 			} else {
-				console.log('Tap Beer', tapBeer);
+				console.log('Else', tapBeer);
 				return res
 					.status(500)
 					.send({ error: 'There was an error adding tap beer' });
