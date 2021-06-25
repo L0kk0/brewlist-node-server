@@ -90,7 +90,7 @@ exports.pourTap = async (req, res) => {
 
 			if (tapBeer) {
 				console.log('No tapBeer', tapBeer);
-				return res.status(200).json(tapBeer);
+				return res.status(200).send(tapBeer);
 			} else {
 				console.log('Tap Beer', tapBeer);
 				return res
