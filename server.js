@@ -12,7 +12,7 @@ data.populateSrm();
 
 // Init Middleware
 app.use(express.json({ extended: true }));
-
+app.set('trust proxy', true);
 if (process.env.NODE_ENV === 'production') {
 	var corsOptions = {
 		origin: process.env.CORS,
