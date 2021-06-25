@@ -14,11 +14,11 @@ data.populateSrm();
 app.use(express.json({ extended: true }));
 app.set('trust proxy', true);
 if (process.env.NODE_ENV === 'production') {
+	console.log('Cors: ', process.env.CORS);
 	var corsOptions = {
 		origin: process.env.CORS,
 		optionsSuccessStatus: 200,
 	};
-	console.log('Cors: ', process.env.CORS);
 	app.use(cors(corsOptions));
 }
 

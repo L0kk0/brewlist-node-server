@@ -35,30 +35,6 @@ module.exports = {
 		}
 	},
 
-	admin: async function (req, res, next) {
-		// Get token from header
-		const token = req.header('x-auth-token');
-
-		//Check if not token
-		if (!token) {
-			return res.status(401).json({ msg: 'No token, authorization denied' });
-		}
-
-		try {
-			const decoded = jwt.verify(token, jwtSecret);
-			req.user = decoded.user;
-
-			let user = await User.findById(req.user.id);
-
-			if (!user && user.Role !== 'admin')
-				return res.status(401).send('Not Authorized');
-			next();
-		} catch (err) {
-			console.log(err.message);
-			res.status(401).json({ msg: 'Token is not valid' });
-		}
-	},
-
 	authPour: async function (req, res, next) {
 		dns.lookup(dynDns, (err, address, family) => {
 			if (req.ip === address || req.headers['x-forwarded-for'] === address) {
